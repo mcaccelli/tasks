@@ -35,6 +35,32 @@ public class UserService {
     public User createUser(UserDTO user){
         User newUser = new User(user);
         this.saveUser(newUser);
-        return  newUser;
+        return newUser;
+    }
+
+    public User updateUser(Long id, UserDTO userDTO) throws Exception {
+        User user = findById(id);
+
+        String newFirstName = userDTO.firstName();
+        if (newFirstName != null && !newFirstName.isEmpty()) {
+            user.setFirstName(newFirstName);
+        }
+
+        String newLastName = userDTO.lastName();
+        if (newLastName != null && !newLastName.isEmpty()) {
+            user.setLastName(newLastName);
+        }
+
+        String newEmail = userDTO.email();
+        if (newEmail != null && !newEmail.isEmpty()) {
+            user.setEmail(newEmail);
+        }
+
+        String newPassword = userDTO.password();
+        if (newPassword != null && !newPassword.isEmpty()) {
+            user.setPassword(newPassword);
+        }
+        this.saveUser(user);
+        return user;
     }
 }

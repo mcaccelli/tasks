@@ -41,4 +41,9 @@ public class UserController {
         return new ResponseEntity<User>(deletedUser, HttpStatus.OK);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> updateUserById(@PathVariable Long id, @RequestBody UserDTO userDTO) throws Exception {
+        User updatedUser = userService.updateUser(id, userDTO);
+        return new ResponseEntity<User>(updatedUser, HttpStatus.OK);
+    }
 }
