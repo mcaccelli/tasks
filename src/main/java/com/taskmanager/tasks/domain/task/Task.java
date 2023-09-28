@@ -1,5 +1,6 @@
 package com.taskmanager.tasks.domain.task;
 
+import com.taskmanager.tasks.domain.user.User;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -16,16 +17,19 @@ public class Task implements Serializable {
     private String title;
     private String description;
     private LocalDate dueDate;
-
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     public Task(){
     }
 
-    public Task(Long id, String title, String description, LocalDate dueDate) {
+    public Task(Long id, String title, String description, LocalDate dueDate, User user) {
         super();
         this.id = id;
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
+        this.user = user;
     }
 
     public Long getId() {
@@ -58,6 +62,14 @@ public class Task implements Serializable {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
