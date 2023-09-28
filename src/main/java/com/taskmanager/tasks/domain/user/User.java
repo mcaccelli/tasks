@@ -37,6 +37,13 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public User(UserDTO userDTO){
+        this.firstName = userDTO.firstName();
+        this.lastName = userDTO.lastName();
+        this.email = userDTO.email();
+        this.password = userDTO.password();
+    }
+
     public Long getId() {
         return id;
     }
