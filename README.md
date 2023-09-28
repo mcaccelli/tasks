@@ -1,6 +1,10 @@
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) 
+
+# Sistema de gerenciador de tarefas
+
 Escopo do projeto
 
-O projeto consiste no desenvolvimento de uma API RESTful em Java para uma aplicação de gerenciamento de tarefas. A API deve permitir aos usuários criar, listar, atualizar e excluir tarefas.
+O projeto consiste no desenvolvimento de uma **API RESTful** em **Java** para uma aplicação de gerenciamento de tarefas. A API deve permitir aos usuários criar, listar, atualizar e excluir tarefas.
 
 Requisitos funcionais
 
