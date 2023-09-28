@@ -9,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 
 @Configuration
@@ -28,9 +27,9 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(user1,user2));
 
-        Task task1 = new Task(null, "Reboot","Task for reboot the server", LocalDate.of(2020, 1, 8),user1);
-        Task task2 = new Task(null, "Reboot","Task for reboot the server", LocalDate.of(2023, 1, 25),user1);
-        Task task3 = new Task(null, "Shutdown","Task for shutdown the server", LocalDate.of(2022, 10, 15),user2);
+        Task task1 = new Task(null, "Reboot","Task for reboot the server", "09/28/2023",user1);
+        Task task2 = new Task(null, "Reboot","Task for reboot the notebook", "08/15/2022",user1);
+        Task task3 = new Task(null, "Shutdown","Task for shutdown the server","02/06/1998",user2);
 
         taskRepository.saveAll(Arrays.asList(task1,task2,task3));
     }
