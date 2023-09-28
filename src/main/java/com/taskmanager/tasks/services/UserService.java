@@ -26,10 +26,10 @@ public class UserService {
         this.userRepository.save((user));
     }
 
-    public User deleteUser(Long id) throws Exception {
+    public String deleteUser(Long id) throws Exception {
         User deletedUser = findById(id);
         this.userRepository.delete(deletedUser);
-        return deletedUser;
+        return "User deleted!";
     }
 
     public User createUser(UserDTO user){
@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public User updateUser(Long id, UserDTO userDTO) throws Exception {
-        User user = findById(id);
+        User user = this.findById(id);
 
         String newFirstName = userDTO.firstName();
         if (newFirstName != null && !newFirstName.isEmpty()) {
