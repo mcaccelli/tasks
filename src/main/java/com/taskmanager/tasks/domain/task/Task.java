@@ -2,9 +2,9 @@ package com.taskmanager.tasks.domain.task;
 
 import com.taskmanager.tasks.domain.user.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -14,21 +14,32 @@ public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Title required.")
     private String title;
+    @NotBlank(message = "Description required.")
     private String description;
-    private LocalDate dueDate;
+    @NotBlank(message = "DueDate required.")
+    private String dueDate;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
     public Task(){
     }
 
-    public Task(Long id, String title, String description, LocalDate dueDate, User user) {
+    public Task(Long id, String title, String description, String dueDate, User user) {
         super();
         this.id = id;
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
+        this.user = user;
+    }
+
+    public Task(TaskRequestDTO requestDTO, User user){
+        this.title = requestDTO.title();
+        this.description = requestDTO.description();
+        this.dueDate = requestDTO.dueDate();
         this.user = user;
     }
 
@@ -56,11 +67,11 @@ public class Task implements Serializable {
         this.description = description;
     }
 
-    public LocalDate getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
