@@ -14,7 +14,6 @@ public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotBlank(message = "Title required.")
     private String title;
     @NotBlank(message = "Description required.")

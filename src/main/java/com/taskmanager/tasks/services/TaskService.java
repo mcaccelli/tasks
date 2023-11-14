@@ -68,10 +68,8 @@ public class TaskService {
         return newTask;
     }
 
-    public String deleteTask(Long id) throws Exception{
-        Task taskToDelete = this.findById(id);
-        taskRepository.delete(taskToDelete);
-        return "Task deleted!";
+    public void deleteTask(Long id){
+        taskRepository.deleteById(id);
     }
 
     public Task updateTask(Long id, TaskRequestDTO requestDTO) throws Exception {

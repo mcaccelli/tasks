@@ -22,7 +22,7 @@ public class User implements Serializable {
     private String email;
     private String password;
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 
     public User() {

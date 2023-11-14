@@ -26,10 +26,8 @@ public class UserService {
         this.userRepository.save((user));
     }
 
-    public String deleteUser(Long id) throws Exception {
-        User deletedUser = findById(id);
-        this.userRepository.delete(deletedUser);
-        return "User deleted!";
+    public void deleteUser(Long id){
+        this.userRepository.deleteById(id);
     }
 
     public User createUser(UserDTO user){

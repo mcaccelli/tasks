@@ -2,10 +2,8 @@ package com.taskmanager.tasks.controllers;
 
 import com.taskmanager.tasks.domain.task.Task;
 import com.taskmanager.tasks.domain.task.TaskRequestDTO;
-import com.taskmanager.tasks.domain.user.User;
 import com.taskmanager.tasks.dto.ResponseDTO;
 import com.taskmanager.tasks.services.TaskService;
-import com.taskmanager.tasks.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
